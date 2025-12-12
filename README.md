@@ -30,7 +30,7 @@ The project follows a standard ML lifecycle: **Data Ingestion → Preprocessing 
 ## 📂 Project Structure
 ```text
 ├── data/
-│   └── WA_Fn-UseC_-Telco-Customer-Churn.csv  # Raw Dataset
+│   └── Amazon_delivery_time.csv  # Raw Dataset
 ├── models/
 │   └── Amazon_delivery_time_prediction_model.pkl                       # Saved trained model pipeline
 ├── train_model.py                            # Script to preprocess, train, and save model
