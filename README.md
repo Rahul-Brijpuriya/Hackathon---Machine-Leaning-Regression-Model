@@ -3,24 +3,37 @@ Choose the industrial dataset , apply Ingestion Layer , Data preprocessing  and 
 
 # Amazon Delivery Time Prediction System
 
-## 📌 Overview
-This project is an end-to-end Machine Learning system designed to predict the estimated delivery time for Amazon orders. It utilizes the Amazon Delivery Dataset to build a regression model that factors in agent attributes, weather conditions, traffic density, and geospatial data.
+# Amazon_delivery_time_prediction & Risk Scoring App
 
-The system includes a reproducible training pipeline, a REST API for inference (FastAPI), and an interactive user dashboard (Streamlit).
+
+## 📖 Project Overview
+This project is an end-to-end Machine Learning pipeline designed to predict the probability of a customer leaving a service (Churn). Unlike standard classification which outputs a binary "Yes/No," this system calculates a **Risk Score (0-100%)**, allowing businesses to prioritize intervention for high-risk customers.
+
+The project follows a standard ML lifecycle: **Data Ingestion → Preprocessing → Model Training → Evaluation → Deployment**.
+
+## 📊 Workflow Architecture
+*As visualized in the project flowchart:*
+
+1.  **Data Ingestion:** Loads the Amazon_delivery_time_prediction dataset.
+2.  **Preprocessing:** Handles missing values, performs One-Hot Encoding for categorical data, and scales numerical features using Scikit-Learn Pipelines.
+3.  **Modeling:**
+    * **Logistic Regression:** Used as a baseline for interpretability.
+    * **Random Forest Classifier:** Used as the final production model for better handling of non-linear data and interactions.
+4.  **Deployment:** A web-based user interface built with **Streamlit** that takes user inputs and displays the churn risk in real-time.
+
+## 🛠️ Tech Stack
+* **Language:** Python
+* **Data Manipulation:** Pandas, NumPy
+* **Machine Learning:** Scikit-Learn (Logistic Regression, Random Forest, Pipeline, ColumnTransformer)
+* **Web Interface:** Streamlit
 
 ## 📂 Project Structure
 ```text
-Amazon-Delivery-System/
 ├── data/
-│   ├── raw/                  # Original CSV (downloaded from Kaggle)
-│   └── processed/            # Cleaned data ready for training
-├── notebooks/                # Jupyter notebooks for EDA and experiments
-├── src/
-│   ├── preprocessing.py      # Cleaning, Haversine distance, and encoding functions
-│   ├── train.py              # Main training script (saves model.pkl)
-│   └── inference.py          # Prediction logic for the API
-├── app/
-│   ├── main.py               # FastAPI backend
-│   └── streamlit_app.py      # UI frontend
-├── Dockerfile                # Container configuration
-└── requirements.txt          # Python dependencies
+│   └── WA_Fn-UseC_-Telco-Customer-Churn.csv  # Raw Dataset
+├── models/
+│   └── Amazon_delivery_time_prediction_model.pkl                       # Saved trained model pipeline
+├── train_model.py                            # Script to preprocess, train, and save model
+├── app.py                                    # Streamlit frontend application
+├── requirements.txt                          # List of dependencies
+└── README.md                                 # Project documentation
