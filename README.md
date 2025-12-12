@@ -43,15 +43,41 @@ The models were trained and evaluated on the industrial dataset. The **Stacked R
 
 ## 📂 Project Structure
 ```text
+├── app/
+│   ├── __pycache__/
+│   ├── frontend.py          # Streamlit / UI logic
+│   └── main.py              # Main application entry point
+│
+├── images/
+│
 ├── data/
-│   └── Amazon_delivery_time.csv      # Raw Dataset
+│   ├── processed/           # Cleaned and preprocessed datasets
+│   └── raw/                 # Original input datasets
+│
 ├── models/
-│   └── final_model.pkl               # Saved Champion Model (Stacked Regressor)
+│   ├── delivery_model.pkl               # Final delivery time prediction model
+│   ├── linear_regression_model.pkl      # Linear Regression model
+│   ├── my_random_forest_model.pkl       # Random Forest model
+│   ├── my_ridge_regression_model.pkl    # Ridge Regression model
+│   └── my_stack_regression_model.pkl    # Stacking / Ensemble model
+│
 ├── src/
-│   ├── logger.py                     # Logging configuration
-│   ├── exception.py                  # Custom exception handling
-│   └── utils.py                      # Utility functions
-├── train_model.py                    # Script to preprocess, train, and save model
-├── app.py                            # Streamlit frontend application
-├── requirements.txt                  # List of dependencies
-└── README.md                         # Project documentation
+│   ├── generate_addresses.py  # Utility to generate synthetic location/address data
+│   ├── inference.py           # Inference pipeline for predictions
+│   ├── model.py               # Model creation, training helpers
+│   ├── preprocessing.py       # Feature engineering & preprocessing steps
+│   └── train.py               # Script to train and save ML models
+│
+├── .gitattributes             # LFS / Git config for large files
+├── .gitignore                 # Ignore rules for unnecessary files
+├── hcltech.ipynb              # Jupyter notebook (EDA / experimentation)
+├── README.md                  # Project documentation
+└── requirements.txt           # Python dependencies
+```
+
+## 📊 Dashboard Preview
+
+<img src="images/dashboard.png" alt="Dashboard Preview" width="800">
+<img src="images/single_order_prediction.png" alt="Single Manual Prediction" width="800">
+<img src="images/mysql.png" alt="Mysql Database connection Preview" width="800">
+<img src="images/mysql_work.png" alt="Mysql work Preview" width="800">
